@@ -1,0 +1,19 @@
+#include "exit_button.agc"
+gosub create_player
+gosub create_landscape
+gosub create_button
+gosub create_skybox
+gosub create_water // a "no shaders" water effect
+// Mode 1) 1st Person mode
+// Mode 2) 3rd Person mode
+// Mode 3) Cinematic mode
+speed#=0.5
+Gosub DoMouseLook
+if GetVirtualButtonState(1) or GetRawKeyState(87)
+MoveObjectLocalZ(player,speed#
+if moving = 0
+PlayObjectAnimation(player,"",795,811,1,0.15)
+moving = 1
+idle=0
+endif
+endif
